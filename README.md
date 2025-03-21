@@ -47,10 +47,11 @@ FastMCPライブラリを利用して、以下のMCPツールを提供します�
    ```
 
 2. **仮想環境の作成と依存パッケージのインストール**
-```python -m venv venv
-source venv/bin/activate   # Windowsの場合: venv\Scripts\activate
-pip install httpx fastmcp fastapi uvicorn
-```
+   
+  ```python -m venv venv
+  source venv/bin/activate   # Windowsの場合: venv\Scripts\activate
+  pip install httpx fastmcp fastapi uvicorn
+  ```
 
 
 ## ツールの使い方
@@ -61,7 +62,7 @@ pip install httpx fastmcp fastapi uvicorn
 -	入力パラメータ：
 	-	keyword (文字列, オプション) – 検索キーワード
 -	出力例：
-JSON形式の文字列（補助金一覧の全体情報）を返します。
+  JSON形式の文字列（補助金一覧の全体情報）を返します。
 
 **get_subsidy_detail**
 - 概要：
@@ -70,32 +71,33 @@ JSON形式の文字列（補助金一覧の全体情報）を返します。
   -	subsidy_id (文字列)
   -	補助金のID（タイトルではなく必ずIDを指定）
 -	出力例：
-MCP形式のJSONオブジェクト
-```{
-  "content": [
-    {
-      "type": "text",
-      "text": "<詳細情報のJSON文字列>"
-    }
-  ]
-}
-```
+  MCP形式のJSONオブジェクト
+  ```{
+    "content": [
+      {
+        "type": "text",
+        "text": "<詳細情報のJSON文字列>"
+      }
+    ]
+  }
+  ```
 
 **download_attachment**
-- 概要：指定した補助金の添付文書について、base64データは返さず、ダウンロード用URLを返します。
+- 概要：
+  指定した補助金の添付文書について、base64データは返さず、ダウンロード用URLを返します。
 - 入力パラメータ：
   - subsidy_id (文字列) – 補助金のID（必ずIDを指定）
   - category (文字列) – 添付文書のカテゴリ（例：application_guidelines, outline_of_grant, application_form）
   - index (整数) – 添付文書のインデックス（0から開始）
 - 出力例：
-MCP形式のJSONオブジェクト
-```{
-  "content": [
-    {
-      "type": "text",
-      "text": "Attachment download URL: https://your-mcp-server.example.com/subsidies/<subsidy_id>/<category>/<index>"
-    }
-  ]
-}
-```
+  MCP形式のJSONオブジェクト
+  ```{
+    "content": [
+      {
+        "type": "text",
+        "text": "Attachment download URL: https://your-mcp-server.example.com/subsidies/<subsidy_id>/<category>/<index>"
+      }
+    ]
+  }
+  ```
 
